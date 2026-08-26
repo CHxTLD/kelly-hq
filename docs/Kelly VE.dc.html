@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Kelly Residence — VE Master List</title>
+<meta property="og:title" content="Kelly Residence — VE Master List">
+<meta property="og:description" content="Live value-engineering list · 9095 Horned Lark Court, Schaffer's Mill, Truckee CA · ch x tld">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://lh3.googleusercontent.com/d/1ndUUm0Dl1M345ztHaTBYt-v92bH4VO_d=w1200">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://lh3.googleusercontent.com/d/1ndUUm0Dl1M345ztHaTBYt-v92bH4VO_d=w1200">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<template id="__bundler_thumbnail">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#ffffff"></rect><rect y="30" width="100" height="2" fill="#1a1a1a"></rect><text x="50" y="64" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="bold" fill="#DE6A2D">VE</text></svg>
+</template>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;background:#e7e5e2;font-family:Arial,Helvetica,sans-serif;
+--ink:#1a1a1a;--sub:#555555;--gray:#787878;--mid:#6e6e6e;--lg:#f0f0f0;--panel:#e4e4e4;--rule:#c9c9c9;
+--acc:#DE6A2D;--accp:#F7E4D7;--ground:#f3f2f2;--rpad:13px}
+a{color:var(--acc);text-decoration:none}a:hover{color:color-mix(in srgb,var(--acc) 70%,#000)}
+button,input,select,textarea{font:inherit}
+input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+@keyframes vepulse{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes veup{from{transform:translateY(12px);opacity:0}to{transform:none;opacity:1}}
+</style>
+</helmet>
+
+<div data-screen-label="Kelly VE Master List" style="max-width:520px;margin:0 auto;min-height:100dvh;background:var(--ground);display:flex;flex-direction:column;box-shadow:0 0 0 1px rgba(0,0,0,0.12);color:var(--ink)">
+
+  <header style="background:#fff;padding:8px 16px 0;flex-shrink:0">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+      <div style="flex:1;min-width:0">
+        <div style="font-size:20px;font-weight:700;line-height:1.1">Kelly Residence — VE Master List</div>
+        <div style="font-size:11px;color:var(--gray);margin-top:2px">9095 Horned Lark Court · Lot 271 · Schaffer&rsquo;s Mill, Truckee CA</div>
+      </div>
+      <img src="./assets/chxtld-logo.png" alt="ch x tld" style="height:60px;display:block;margin:-4px -8px -2px 0;flex-shrink:0">
+    </div>
+    <div style="height:3px;background:var(--acc);margin-top:4px"></div>
+  </header>
+
+  <sc-if value="{{ demoMode }}" hint-placeholder-val="{{ false }}">
+    <button onClick="{{ openSettings }}" style="display:block;width:100%;text-align:left;border:none;border-bottom:1px solid var(--rule);background:var(--panel);padding:8px 16px;font-size:10.5px;color:var(--sub);cursor:pointer" style-hover="background:var(--lg)">Local demo — edits stay on this device. <span style="color:var(--acc);font-weight:700">Connect the Google Sheet →</span></button>
+  </sc-if>
+  <sc-if value="{{ errMode }}" hint-placeholder-val="{{ false }}">
+    <button onClick="{{ onRetry }}" style="display:block;width:100%;text-align:left;border:none;background:var(--ink);color:#fff;padding:8px 16px;font-size:10.5px;cursor:pointer">{{ errText }} <span style="color:var(--acc);font-weight:700">Retry →</span></button>
+  </sc-if>
+
+  <div style="display:grid;grid-template-columns:1.15fr 1fr 0.85fr 1.1fr;background:#fff;border-bottom:2px solid var(--ink);flex-shrink:0">
+    <div style="padding:10px 0 10px 16px;border-right:1px solid var(--rule);background:var(--accp)">
+      <div style="font-size:8.5px;font-weight:700;letter-spacing:0.12em;color:var(--mid);text-transform:uppercase">Accepted</div>
+      <div style="font-size:17px;font-weight:700;color:var(--acc);line-height:1.2">{{ accSumLabel }}</div>
+    </div>
+    <div style="padding:10px 0 10px 16px;border-right:1px solid var(--rule)">
+      <div style="font-size:8.5px;font-weight:700;letter-spacing:0.12em;color:var(--mid);text-transform:uppercase">Decided</div>
+      <div style="font-size:17px;font-weight:700;line-height:1.2">{{ decidedLabel }}</div>
+    </div>
+    <div style="padding:10px 0 10px 16px;border-right:1px solid var(--rule)">
+      <div style="font-size:8.5px;font-weight:700;letter-spacing:0.12em;color:var(--mid);text-transform:uppercase">Open</div>
+      <div style="font-size:17px;font-weight:700;line-height:1.2">{{ openCount }}</div>
+    </div>
+    <div style="padding:10px 8px 10px 12px;display:flex;flex-direction:column;gap:2px">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:4px">
+        <span style="font-size:8.5px;font-weight:700;letter-spacing:0.12em;color:var(--mid);text-transform:uppercase">Sheet</span>
+        <button onClick="{{ openSettings }}" title="Sync settings" style="border:none;background:transparent;color:var(--sub);width:16px;height:16px;padding:0;font-size:12px;font-weight:700;line-height:1;cursor:pointer" style-hover="color:var(--ink)">⋮</button>
+      </div>
+      <button onClick="{{ onPill }}" style="{{ syncPillStyle }}" style-hover="color:var(--ink)"><span style="{{ syncDotStyle }}"></span>{{ syncLabel }}</button>
+    </div>
+  </div>
+
+  <div style="display:flex;gap:6px;overflow-x:auto;padding:10px 16px;flex-shrink:0;scrollbar-width:none">
+    <sc-for list="{{ chips }}" as="ch" hint-placeholder-count="5">
+      <button onClick="{{ ch.onClick }}" style="{{ ch.style }}" style-hover="border-color:var(--ink)">{{ ch.label }}</button>
+    </sc-for>
+  </div>
+
+  <div style="flex:1;border-top:1px solid var(--rule)">
+    <sc-for list="{{ groups }}" as="g" hint-placeholder-count="6">
+      <div style="position:sticky;top:0;z-index:2;display:flex;align-items:baseline;justify-content:space-between;gap:8px;padding:7px 16px 6px;background:#e9e7e4;border-bottom:1px solid var(--rule)">
+        <span style="font-size:10.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase"><span style="color:var(--acc)">{{ g.idx }}</span> {{ g.name }}</span>
+        <span style="font-size:10px;color:var(--mid)">{{ g.meta }}</span>
+      </div>
+      <sc-for list="{{ g.items }}" as="it" hint-placeholder-count="4">
+        <div onClick="{{ it.toggle }}" style="display:flex;gap:10px;padding:var(--rpad) 16px;border-bottom:1px solid var(--rule);cursor:pointer;background:var(--ground)" style-hover="background:#fff">
+          <span style="font-size:10.5px;font-weight:700;color:var(--acc);flex-shrink:0;padding-top:2px;min-width:20px">{{ it.num }}</span>
+          <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px">
+            <span style="{{ it.titleStyle }}">{{ it.title }}</span>
+            <sc-if value="{{ it.hasNote }}" hint-placeholder-val="{{ false }}">
+              <span style="font-size:11px;color:var(--gray);line-height:1.4;text-wrap:pretty">{{ it.note }}</span>
+            </sc-if>
+            <span style="font-size:9.5px;color:var(--mid);letter-spacing:0.06em;text-transform:uppercase">{{ it.metaLine }}</span>
+          </div>
+          <span style="{{ it.tagStyle }}">{{ it.st }}</span>
+        </div>
+        <sc-if value="{{ it.open }}" hint-placeholder-val="{{ false }}">
+          <div style="background:#fff;border-bottom:2px solid var(--ink);padding:14px 16px;display:flex;flex-direction:column;gap:12px;animation:veup .18s ease">
+            <label style="display:flex;flex-direction:column;gap:4px">
+              <span style="font-size:8.5px;font-weight:700;letter-spacing:0.12em;color:var(--mid);text-transform:uppercase">VE item</span>
+              <textarea rows="2" defaultValue="{{ it.title }}" onBlur="{{ it.onTitle }}" style="border:1px solid var(--rule);background:var(--lg);padding:9px 10px;font-size:13px;font-weight:600;resize:none;width:100%;box-sizing:border-box;border-radius:0;font-family:inherit;line-height:1.35"></textarea>
+            </label>
+            <div style="display:flex;gap:5px">
+              <sc-for list="{{ it.seg }}" as="s" hint-placeholder-count="4">
+                <button onClick="{{ s.onClick }}" style="{{ s.style }}" style-hover="border-color:var(--ink)">{{ s.label }}</button>
+              </sc-for>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+              <label style="display:flex;flex-direction:column;gap:4px">
+                <span style="font-size:8.5px;font-weight:700;letter-spacing:0.12em;color:var(--mid);text-transform:uppercase">Est. savings</span>
+                <input inputMode="numeric" placeholder="$ 0" defaultValue="{{ it.svStr }}" onBlur="{{ it.onSavings }}" style="border:1px solid var(--rule);background:var(--lg);padding:9px 10px;font-size:13px;font-weight:700;width:100%;box-sizing:border-box;border-radius:0">
+              </label>
+              <label style="display:flex;flex-direction:column;gap:4px">
+                <span style="font-size:8.5px;font-weight:700;letter-spacing:0.12em;color:var(--mid);text-transform:uppercase">Scope / ball in court</span>
+                <select value="{{ it.party }}" onChange="{{ it.onParty }}" style="border:1px solid var(--rule);background:var(--lg);padding:9px 6px;font-size:12px;width:100%;box-sizing:border-box;border-radius:0;appearance:none">
+                  <option value="CHxTLD">CHxTLD</option><option value="Method">Method</option><option value="Timberline">Timberline</option><option value="MEG">MEG</option><option value="ISE">ISE</option><option value="Owners">Owners</option>
+                </select>
+              </label>
+            </div>
+            <textarea rows="2" placeholder="Coordination note…" defaultValue="{{ it.unote }}" onBlur="{{ it.onNote }}" style="border:1px solid var(--rule);background:var(--lg);padding:9px 10px;font-size:12px;resize:none;width:100%;box-sizing:border-box;border-radius:0;font-family:inherit"></textarea>
+            <button onClick="{{ it.onDelete }}" style="{{ it.delStyle }}" style-hover="border-color:var(--ink)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" style="flex-shrink:0"><path d="M3 6h18"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>{{ it.delLabel }}</button>
+          </div>
+        </sc-if>
+      </sc-for>
+    </sc-for>
+    <div style="height:8px"></div>
+  </div>
+
+  <div style="position:sticky;bottom:0;z-index:30;display:flex;border-top:2px solid var(--ink);background:#fff;flex-shrink:0">
+    <button onClick="{{ openAdd }}" style="flex:1;text-align:left;padding:14px 16px;background:#fff;border:none;border-right:1px solid var(--rule);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink);cursor:pointer" style-hover="background:var(--lg)">+ Add item</button>
+    <button onClick="{{ openShare }}" style="flex:1;text-align:left;padding:14px 16px;background:var(--acc);border:none;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#fff;cursor:pointer" style-hover="filter:brightness(0.92)">Share summary →</button>
+  </div>
+</div>
+
+<sc-if value="{{ addOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;inset:0;z-index:50;background:rgba(26,26,26,0.45);display:flex;justify-content:center;align-items:flex-end" onClick="{{ closeAll }}">
+    <div style="width:100%;max-width:520px;background:#fff;border-top:2px solid var(--ink);padding:16px;box-sizing:border-box;display:flex;flex-direction:column;gap:12px;animation:veup .2s ease;font-family:Arial,Helvetica,sans-serif" onClick="{{ eatClick }}">
+      <div style="font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase">New VE item</div>
+      <label style="display:flex;flex-direction:column;gap:4px">
+        <span style="font-size:8.5px;font-weight:700;letter-spacing:0.12em;color:var(--mid);text-transform:uppercase">Category</span>
+        <select value="{{ addCat }}" onChange="{{ onAddCat }}" style="border:1px solid var(--rule);background:var(--lg);padding:9px 6px;font-size:12px;border-radius:0;appearance:none">
+          <sc-for list="{{ catNames }}" as="c" hint-placeholder-count="3"><option value="{{ c }}">{{ c }}</option></sc-for>
+        </select>
+      </label>
+      <label style="display:flex;flex-direction:column;gap:4px">
+        <span style="font-size:8.5px;font-weight:700;letter-spacing:0.12em;color:var(--mid);text-transform:uppercase">VE item</span>
+        <input placeholder="e.g. Swap specified fixture for standard" value="{{ addTitle }}" onChange="{{ onAddTitle }}" style="border:1px solid var(--rule);background:var(--lg);padding:9px 10px;font-size:13px;border-radius:0;box-sizing:border-box;width:100%">
+      </label>
+      <label style="display:flex;flex-direction:column;gap:4px">
+        <span style="font-size:8.5px;font-weight:700;letter-spacing:0.12em;color:var(--mid);text-transform:uppercase">Notes / coordination</span>
+        <input placeholder="Optional" value="{{ addNote }}" onChange="{{ onAddNote }}" style="border:1px solid var(--rule);background:var(--lg);padding:9px 10px;font-size:12px;border-radius:0;box-sizing:border-box;width:100%">
+      </label>
+      <div style="display:flex;gap:8px">
+        <button onClick="{{ closeAll }}" style="flex:1;text-align:left;padding:12px 14px;border:1px solid var(--ink);background:#fff;font-size:10.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer">Cancel</button>
+        <button onClick="{{ onAddSave }}" style="flex:1;text-align:left;padding:12px 14px;border:none;background:var(--ink);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer" style-hover="background:var(--acc)">{{ addBtnLabel }}</button>
+      </div>
+    </div>
+  </div>
+</sc-if>
+
+<sc-if value="{{ shareOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;inset:0;z-index:50;background:rgba(26,26,26,0.45);display:flex;justify-content:center;align-items:flex-end" onClick="{{ closeAll }}">
+    <div style="width:100%;max-width:520px;background:#fff;border-top:2px solid var(--ink);padding:16px;box-sizing:border-box;display:flex;flex-direction:column;gap:10px;animation:veup .2s ease;font-family:Arial,Helvetica,sans-serif" onClick="{{ eatClick }}">
+      <div style="font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase">VE summary</div>
+      <textarea readonly="" rows="11" value="{{ shareText }}" style="border:1px solid var(--rule);background:var(--lg);padding:10px;font-size:10.5px;line-height:1.55;font-family:ui-monospace,Menlo,monospace;resize:none;border-radius:0;box-sizing:border-box;width:100%"></textarea>
+      <div style="display:flex;gap:8px">
+        <button onClick="{{ closeAll }}" style="flex:1;text-align:left;padding:12px 14px;border:1px solid var(--ink);background:#fff;font-size:10.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer">Close</button>
+        <button onClick="{{ onCopy }}" style="flex:1.4;text-align:left;padding:12px 14px;border:none;background:var(--acc);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer" style-hover="filter:brightness(0.92)">{{ copyLabel }}</button>
+      </div>
+    </div>
+  </div>
+</sc-if>
+
+<sc-if value="{{ settingsOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;inset:0;z-index:50;background:rgba(26,26,26,0.45);display:flex;justify-content:center;align-items:flex-end" onClick="{{ closeAll }}">
+    <div style="width:100%;max-width:520px;background:#fff;border-top:2px solid var(--ink);padding:16px;box-sizing:border-box;display:flex;flex-direction:column;gap:12px;animation:veup .2s ease;font-family:Arial,Helvetica,sans-serif" onClick="{{ eatClick }}">
+      <div style="font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase">Google Sheet sync</div>
+      <div style="font-size:11px;color:var(--gray);line-height:1.5;text-wrap:pretty">Everyone with this app pointed at the same script reads and writes one sheet. Deploy <span style="font-family:ui-monospace,Menlo,monospace">apps-script-ve/Code.gs</span> as a web app (Execute as Me · Anyone) — steps in SETUP-VE-SYNC.md — then paste the /exec URL here.</div>
+      <label style="display:flex;flex-direction:column;gap:4px">
+        <span style="font-size:8.5px;font-weight:700;letter-spacing:0.12em;color:var(--mid);text-transform:uppercase">Script URL</span>
+        <input placeholder="https://script.google.com/macros/s/…/exec" value="{{ urlDraft }}" onChange="{{ onUrlDraft }}" style="border:1px solid var(--rule);background:var(--lg);padding:9px 10px;font-size:11px;font-family:ui-monospace,Menlo,monospace;border-radius:0;box-sizing:border-box;width:100%">
+      </label>
+      <label style="display:flex;flex-direction:column;gap:4px">
+        <span style="font-size:8.5px;font-weight:700;letter-spacing:0.12em;color:var(--mid);text-transform:uppercase">Spreadsheet id (optional — overrides the script default)</span>
+        <input placeholder="1AbC…" value="{{ sheetDraft }}" onChange="{{ onSheetDraft }}" style="border:1px solid var(--rule);background:var(--lg);padding:9px 10px;font-size:11px;font-family:ui-monospace,Menlo,monospace;border-radius:0;box-sizing:border-box;width:100%">
+      </label>
+      <div style="font-size:10px;color:var(--mid)">{{ connStatusLine }}</div>
+      <div style="display:flex;gap:8px">
+        <button onClick="{{ onDisconnect }}" style="flex:1;text-align:left;padding:12px 14px;border:1px solid var(--ink);background:#fff;font-size:10.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer">Disconnect</button>
+        <button onClick="{{ onConnect }}" style="flex:1.4;text-align:left;padding:12px 14px;border:none;background:var(--acc);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer" style-hover="filter:brightness(0.92)">Save &amp; connect</button>
+      </div>
+    </div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;scriptUrl&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;https://script.google.com/macros/s/AKfycbxb6OprpFaSnmV3SWKesKsjuG9ANJWqRUVhUxJInstZ0Wvn7P1FA4KBxeLpXQVu2tR5fQ/exec&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Google Sheet sync&quot;},
+  &quot;sheetId&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;1PvtRF8jVLn5vA1AmdXDMBkbMdZ2un91n1zDwCKzIQck&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Google Sheet sync&quot;},
+  &quot;accent&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#DE6A2D&quot;, &quot;options&quot;: [&quot;#DE6A2D&quot;, &quot;#e38d54&quot;, &quot;#a8894f&quot;, &quot;#4a7a4e&quot;], &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Look&quot;},
+  &quot;compact&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: false, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Look&quot;},
+  &quot;showRejected&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Look&quot;}
+}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    const R = [
+      [1,'Windows',"Reduce all widths to 3' or 4' max",'','C'],
+      [2,'Windows','12" window headers, avoids several steel rims','','C'],
+      [3,'Windows','24" to 30" sills in most locations incl. nook','Windows do not need to extend to floor','C'],
+      [4,'Windows','Hold Marvin Essential line throughout','No Signature upgrades','C'],
+      [5,'Windows','Reduce glazing on north side','Helps Title 24','C'],
+      [6,'Doors','Reduce door count','Mudroom, master patio, upper deck, bunk room vestibule, level 2 bath','C'],
+      [7,'Doors','Swap multi slide / lift and slide for standard sliders or French doors','','C'],
+      [8,'Nook','Eliminate bump out at bar, pull front cantilever eave to 36" from 6\'6"','','C'],
+      [9,'Nook','Eliminate wood ceiling at nook','','C'],
+      [10,'Garage','Reduce size slightly','','C'],
+      [11,'Garage','Add post to eliminate steel beam','','C'],
+      [12,'Master','Ditch fireplace, revert bed rotation','','C'],
+      [13,'Master','Simplify windows','','C'],
+      [14,'Level 2','Reconfigure, reduce conditioned area','','C'],
+      [15,'Level 2','Eliminate upper deck','','C'],
+      [16,'Level 2','Align northern wall at sitting area with kitchen wall below','Eliminates STL BM31','C'],
+      [17,'Level 2',"Drop ceiling height to 9'",'Reduces wall area and module height','C'],
+      [18,'Level 2','Align front elevation bunk room perimeter wall with stair volume','Pairs with nook bump out elimination; exhibit available','C'],
+      [19,'Structure','Standardize module sizes','Reduces set complexity and crane time; verify with Method','C'],
+      [20,'Roof / Decks','Conventional deck over sleepers, not pedestal pavers','If upper deck is kept','C'],
+      [21,'Roof / Decks','Trex standard color selection, no premium line','','C'],
+      [22,'Roof / Decks','Swap cable railing for more affordable system','DRC material change via Paul Ferro','C'],
+      [23,'HVAC','Remove radiant floor heating, ducted heat pump only','','C'],
+      [24,'HVAC','Serve Level 1 and 2 from 1-2 AHU in unvented conditioned crawlspace, floor registers','Eliminates drop ceiling units and soffits; duct chases at pantry and bunk room closet; coordinate registers vs module mate lines with Method; T24 check with MEG','C'],
+      [25,'HVAC','Alternate: single ducted unit at Level 2 instead of two','','C'],
+      [26,'HVAC','Reduce zone count, 3-4 zones from 1-2 crawlspace air handlers','','C'],
+      [27,'HVAC','Simplify ERV routing, one unit','','C'],
+      [28,'HVAC','No snowmelt anywhere','','C'],
+      [29,'Plumbing','Standard fixture package at secondary baths','','C'],
+      [30,'Plumbing','Consolidate wet walls at Level 2','Mostly achieved: LVL2 shower above powder room','C'],
+      [31,'Plumbing','Standard water heater sizing, no recirc loop','','C'],
+      [32,'Electrical / Lighting / Low Voltage','Reduce recessed fixture count, standard trims','','C'],
+      [33,'Electrical / Lighting / Low Voltage','Reduce PV and battery to code minimum','Full delete not code feasible; requires T24 rerun with MEG','C'],
+      [34,'Electrical / Lighting / Low Voltage','Landscape lighting to allowance or out','','C'],
+      [35,'Electrical / Lighting / Low Voltage','Delete or defer smart home / low voltage beyond code','','C'],
+      [36,'Electrical / Lighting / Low Voltage','Defer generator; EV charger rough-in only','','C'],
+      [37,'Materiality / Exterior','Painted metal panels instead of AL13','DRC material change via Paul Ferro','T'],
+      [38,'Materiality / Exterior','STK cedar instead of clear cedar at eave soffits','DRC material change via Paul Ferro','T'],
+      [39,'Materiality / Exterior','Non-WUI thin cedar lap and soffits over 5/8" Type X gyp','Verify CBC Ch. 7A / WUI compliance before pricing','T'],
+      [40,'Materiality / Exterior','Board formed concrete instead of full thickness stone at entry walls','Deletes masonry trade; board form the pour already happening; DRC material change','C'],
+      [41,'Materiality / Exterior','VE metal louvers out','Looks fine without flat bars','T'],
+      [42,'Materiality / Exterior','Wood dog run fence instead of metal, painted black','DRC material change via Paul Ferro','T'],
+      [43,'Materiality / Exterior','Reduce wood ceiling areas to drywall','Not fully sold; large wood ceiling at main living','C'],
+      [44,'Interiors','Standard tile at secondary baths','','C'],
+      [45,'Interiors','Reduce tile heights, wainscot not full height','','C'],
+      [46,'Interiors','Paint grade flat panel millwork at secondary areas','','C'],
+      [47,'Interiors','Reduce built-ins, keep kitchen and master only','','C'],
+      [48,'Interiors','Appliance package tier drop, standard stainless fridge','No specs issued yet','C'],
+      [49,'Site / Landscape','Concrete pavers over sand instead of porcelain over slab at back patio','','T'],
+      [50,'Site / Landscape','Gravel paths at side elevations','','C'],
+      [51,'Site / Landscape','Landscape to defensible space minimum, phase the rest','Particularly plantings at rear yard berm','C'],
+      [52,'Site / Landscape','Simplify irrigation zones',"Pending Toby: hold Kenn's irrigation work?",'C'],
+      [53,'Site / Landscape','Defer spa / hot tub to owner scope','','C']
+    ];
+    this.baseCats = ['Windows','Doors','Nook','Garage','Master','Level 2','Structure','Roof / Decks','HVAC','Plumbing','Electrical / Lighting / Low Voltage','Materiality / Exterior','Interiors','Site / Landscape'];
+    this.base = R.map(r => ({ num: r[0], cat: r[1], title: r[2], note: r[3], src: r[4] === 'T' ? 'Timberline' : 'CHxTLD', sv: 0, st: 'Proposed', party: '', unote: '' }));
+    this.statuses = ['Proposed', 'Priced', 'Accepted', 'Rejected'];
+    this.state = {
+      remote: null, pend: {}, conn: 'boot', lastSync: 0, errText: '',
+      ovLocal: {}, extraLocal: [],
+      filter: 'All', open: null,
+      addOpen: false, addCat: 'Windows', addTitle: '', addNote: '', addBusy: false,
+      shareOpen: false, settingsOpen: false, copyLabel: 'Copy to clipboard', confirmDel: null,
+      urlDraft: '', sheetDraft: '', tick: 0
+    };
+  }
+  url() {
+    // The Kelly HQ deployment — one backend for the whole project. Its
+    // type=veapp / action=update pair serves this widget's shape directly.
+    const DEF = 'https://script.google.com/macros/s/AKfycbxb6OprpFaSnmV3SWKesKsjuG9ANJWqRUVhUxJInstZ0Wvn7P1FA4KBxeLpXQVu2tR5fQ/exec';
+    try {
+      const saved = (localStorage.getItem('kellyVE.scriptUrl') || '').trim();
+      // Ignore a URL saved against the retired VE-only deployment.
+      if (saved && saved.indexOf('AKfycby3p9QDlmehtb') === -1) return saved;
+    } catch (e) {}
+    return (this.props.scriptUrl || DEF).trim();
+  }
+  sheetId() {
+    const DEF = '1PvtRF8jVLn5vA1AmdXDMBkbMdZ2un91n1zDwCKzIQck';
+    try {
+      const saved = (localStorage.getItem('kellyVE.sheetId') || '').trim();
+      // The VE master-list id was the old backend's parameter; the HQ backend
+      // wants the matrix id and finds the VE sheet through CONFIG.
+      if (saved && saved !== '15Tgss9utEvf81dIRUsdeABVllmiD5B6p8ZZi7l_CWR8') return saved;
+    } catch (e) {}
+    return (this.props.sheetId || DEF).trim();
+  }
+  componentDidMount() {
+    try { const s = JSON.parse(localStorage.getItem('kellyVE.app.v1') || 'null'); if (s) this.setState({ ovLocal: s.ov || {}, extraLocal: s.extra || [] }); } catch (e) {}
+    this.setState({ urlDraft: this.url(), sheetDraft: this.sheetId() });
+    this.applyTweaks();
+    this.refresh();
+    this._poll = setInterval(() => { if (this.url()) this.refresh(true); }, 25000);
+    this._tickT = setInterval(() => this.setState(s => ({ tick: s.tick + 1 })), 30000);
+    this._focus = () => { if (this.url()) this.refresh(true); };
+    window.addEventListener('focus', this._focus);
+  }
+  componentWillUnmount() {
+    clearInterval(this._poll); clearInterval(this._tickT);
+    window.removeEventListener('focus', this._focus);
+  }
+  componentDidUpdate() { this.applyTweaks(); }
+  applyTweaks() {
+    const b = document.body.style;
+    const a = this.props.accent ?? '#DE6A2D';
+    b.setProperty('--acc', a);
+    b.setProperty('--accp', a === '#DE6A2D' ? '#F7E4D7' : 'color-mix(in srgb, ' + a + ' 14%, #fff)');
+    b.setProperty('--rpad', (this.props.compact ?? false) ? '8px' : '13px');
+  }
+  persistLocal() { try { localStorage.setItem('kellyVE.app.v1', JSON.stringify({ ov: this.state.ovLocal, extra: this.state.extraLocal })); } catch (e) {} }
+  api(qs) {
+    const u = this.url();
+    const sid = this.sheetId();
+    // sheet= is the HQ matrix (where CONFIG lives); ve_sheet in CONFIG points
+    // the backend at the VE master list itself.
+    return u + (u.indexOf('?') > -1 ? '&' : '?') + 'type=veapp&' +
+      (sid ? 'sheet=' + encodeURIComponent(sid) + '&' : '') + (qs || '');
+  }
+  refresh(quiet) {
+    const u = this.url();
+    if (!u) { this.setState({ conn: 'demo' }); return; }
+    if (!quiet) this.setState({ conn: this.state.remote ? this.state.conn : 'loading' });
+    fetch(this.api('t=' + Date.now()))
+      .then(r => r.json())
+      .then(j => {
+        if (!j.ok || !Array.isArray(j.items)) throw new Error(j.error || 'bad payload');
+        const now = Date.now();
+        const pend = {};
+        Object.keys(this.state.pend).forEach(k => { if (now - this.state.pend[k].t < 15000) pend[k] = this.state.pend[k]; });
+        this.setState({ remote: j.items, conn: 'ok', lastSync: now, pend, errText: '' });
+      })
+      .catch(err => this.setState({ conn: 'err', errText: 'Sync failed — check the script URL and that access is set to Anyone.' }));
+  }
+  post(body, cb) {
+    const payload = Object.assign({}, body, this.sheetId() ? { sheet: this.sheetId() } : {});
+    fetch(this.url(), { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify(payload) })
+      .then(r => r.json())
+      .then(j => {
+        if (!j.ok) throw new Error(j.error || 'write failed');
+        this.setState(s => {
+          const pend = Object.assign({}, s.pend);
+          if (body.num != null) delete pend[body.num];
+          return { remote: j.items || s.remote, conn: 'ok', lastSync: Date.now(), pend, errText: '' };
+        });
+        if (cb) cb(true);
+      })
+      .catch(() => { this.setState({ conn: 'err', errText: 'Write failed — will keep your change on screen; retry sync.' }); if (cb) cb(false); });
+  }
+  write(num, patch) {
+    if (!this.url()) {
+      this.setState(s => ({ ovLocal: Object.assign({}, s.ovLocal, { [num]: Object.assign({}, s.ovLocal[num], patch) }) }), () => this.persistLocal());
+      return;
+    }
+    this.setState(s => ({ pend: Object.assign({}, s.pend, { [num]: { t: Date.now(), patch: Object.assign({}, (s.pend[num] || {}).patch, patch) } }) }));
+    this.post(Object.assign({ action: 'update', num }, patch));
+  }
+  items() {
+    const s = this.state;
+    if (this.url()) {
+      return (s.remote || this.base).map(i => {
+        const p = s.pend[i.num];
+        return p ? Object.assign({}, i, p.patch) : i;
+      }).map(i => Object.assign({}, i, { party: i.party || i.src }));
+    }
+    return [...this.base, ...s.extraLocal].map(i => {
+      const o = s.ovLocal[i.num] || {};
+      const m = Object.assign({}, i, o);
+      return Object.assign(m, { party: m.party || m.src });
+    }).filter(i => !i.deleted);
+  }
+  cats(IT) {
+    const seen = [...this.baseCats];
+    IT.forEach(i => { if (seen.indexOf(i.cat) === -1) seen.push(i.cat); });
+    return seen;
+  }
+  fmt(v) { return '$' + Number(v || 0).toLocaleString('en-US'); }
+  tagStyle(st) {
+    const b = 'flex-shrink:0;font-size:9px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:4px 7px;align-self:flex-start;';
+    if (st === 'Accepted') return b + 'background:var(--acc);color:#fff;';
+    if (st === 'Rejected') return b + 'background:var(--panel);color:var(--gray);';
+    if (st === 'Priced') return b + 'border:1px solid var(--ink);color:var(--ink);background:#fff;';
+    return b + 'border:1px solid var(--rule);color:var(--sub);background:#fff;';
+  }
+  shareText() {
+    const IT = this.items();
+    const acc = IT.filter(i => i.st === 'Accepted');
+    const rej = IT.filter(i => i.st === 'Rejected');
+    const pri = IT.filter(i => i.st === 'Priced');
+    const openN = IT.length - acc.length - rej.length;
+    const sum = acc.reduce((a, i) => a + Number(i.sv || 0), 0);
+    const d = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    const line = i => '  #' + i.num + '  ' + i.title + (i.sv ? '  — ' + this.fmt(i.sv) : '');
+    let t = 'KELLY RESIDENCE — VE SUMMARY\n9095 Horned Lark Court, Truckee CA\n' + d + '\n\n';
+    t += 'ACCEPTED (' + acc.length + ') — ' + this.fmt(sum) + '\n' + (acc.length ? acc.map(line).join('\n') : '  none yet') + '\n\n';
+    if (pri.length) t += 'PRICED, AWAITING DECISION (' + pri.length + ')\n' + pri.map(line).join('\n') + '\n\n';
+    t += 'REJECTED (' + rej.length + ')' + (rej.length ? '\n' + rej.map(i => '  #' + i.num + '  ' + i.title).join('\n') : '') + '\n\n';
+    t += openN + ' items still open of ' + IT.length + '.\n\nch x tld — prefab evolved\ncleverhomes.net';
+    return t;
+  }
+  renderVals() {
+    const S = this.state, IT = this.items();
+    const acc = IT.filter(i => i.st === 'Accepted');
+    const rej = IT.filter(i => i.st === 'Rejected');
+    const accSum = acc.reduce((a, i) => a + Number(i.sv || 0), 0);
+    const decided = acc.length + rej.length;
+    const cats = this.cats(IT);
+
+    const conn = S.conn;
+    const mins = Math.round((Date.now() - S.lastSync) / 60000);
+    const pendingN = Object.keys(S.pend).length;
+    const syncLabel =
+      conn === 'demo' ? 'Local demo' :
+      conn === 'loading' || conn === 'boot' ? 'Connecting…' :
+      conn === 'err' ? 'Offline' :
+      pendingN ? 'Saving…' : '✓ ' + (mins < 1 ? 'just now' : mins + 'm ago');
+    const dotCol = conn === 'ok' ? '#4a7a4e' : conn === 'err' ? 'var(--acc)' : 'var(--rule)';
+    const dotAnim = (conn === 'loading' || conn === 'boot' || pendingN) ? 'animation:vepulse 0.8s infinite;' : '';
+
+    let list = IT;
+    if (S.filter !== 'All') {
+      if (this.statuses.indexOf(S.filter) > -1) list = list.filter(i => i.st === S.filter);
+      else list = list.filter(i => i.party === S.filter);
+    }
+    if (!(this.props.showRejected ?? true) && S.filter !== 'Rejected') list = list.filter(i => i.st !== 'Rejected');
+
+    const chips = ['All', 'Proposed', 'Priced', 'Accepted', 'Rejected', 'CHxTLD', 'Timberline', 'Method', 'MEG', 'ISE', 'Owners'].map(f => {
+      const on = S.filter === f;
+      return {
+        label: f,
+        style: 'flex-shrink:0;font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:6px 11px;cursor:pointer;border:1px solid ' + (on ? 'var(--ink);background:var(--ink);color:#fff;' : 'var(--rule);background:#fff;color:var(--sub);'),
+        onClick: () => this.setState({ filter: f })
+      };
+    });
+
+    const mkItem = i => {
+      const open = S.open === i.num;
+      return {
+        num: String(i.num).padStart(2, '0'),
+        title: i.title,
+        note: i.note ? '– ' + i.note : '', hasNote: !!i.note,
+        st: i.st,
+        metaLine: i.party + (i.sv ? ' · ' + this.fmt(i.sv) : '') + (i.unote ? ' · note' : ''),
+        titleStyle: 'font-size:13.5px;font-weight:600;line-height:1.35;text-wrap:pretty;' + (i.st === 'Rejected' ? 'text-decoration:line-through;color:var(--gray);' : 'color:var(--ink);'),
+        tagStyle: this.tagStyle(i.st),
+        open,
+        toggle: () => this.setState({ open: open ? null : i.num }),
+        seg: this.statuses.map(st2 => {
+          const on = i.st === st2;
+          return {
+            label: st2,
+            style: 'flex:1;padding:8px 4px 8px 8px;text-align:left;font-size:9.5px;font-weight:700;letter-spacing:0.03em;text-transform:uppercase;cursor:pointer;border:1px solid ' + (on ? (st2 === 'Accepted' ? 'var(--acc);background:var(--acc);color:#fff;' : 'var(--ink);background:var(--ink);color:#fff;') : 'var(--rule);background:#fff;color:var(--sub);'),
+            onClick: () => this.write(i.num, { st: st2 })
+          };
+        }),
+        svStr: i.sv ? String(i.sv) : '',
+        onSavings: e => {
+          const v = Number(String(e.target.value).replace(/[^0-9]/g, '')) || 0;
+          const patch = { sv: v };
+          if (v && i.st === 'Proposed') patch.st = 'Priced';
+          this.write(i.num, patch);
+        },
+        onTitle: e => { const v = e.target.value.trim(); if (v && v !== i.title) this.write(i.num, { title: v }); },
+        delLabel: S.confirmDel === i.num ? 'Tap again to delete #' + i.num : 'Delete item',
+        delStyle: 'display:flex;align-items:center;gap:7px;align-self:flex-start;padding:8px 12px;font-size:9.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;' + (S.confirmDel === i.num ? 'border:1px solid var(--acc);background:var(--acc);color:#fff;' : 'border:1px solid var(--rule);background:#fff;color:var(--gray);'),
+        onDelete: () => {
+          if (S.confirmDel !== i.num) {
+            this.setState({ confirmDel: i.num });
+            clearTimeout(this._cd);
+            this._cd = setTimeout(() => this.setState({ confirmDel: null }), 3500);
+            return;
+          }
+          clearTimeout(this._cd);
+          this.setState({ confirmDel: null, open: null });
+          if (this.url()) this.post({ action: 'delete', num: i.num });
+          else this.setState(s => {
+            const inExtra = s.extraLocal.some(x => x.num === i.num);
+            return inExtra
+              ? { extraLocal: s.extraLocal.filter(x => x.num !== i.num) }
+              : { ovLocal: Object.assign({}, s.ovLocal, { [i.num]: Object.assign({}, s.ovLocal[i.num], { deleted: true }) }) };
+          }, () => this.persistLocal());
+        },
+        party: i.party,
+        onParty: e => this.write(i.num, { party: e.target.value }),
+        unote: i.unote,
+        onNote: e => this.write(i.num, { unote: e.target.value })
+      };
+    };
+    const groups = cats.map((c, ci) => {
+      const gi = list.filter(i => i.cat === c);
+      if (!gi.length) return null;
+      const all = IT.filter(i => i.cat === c);
+      const gd = all.filter(i => i.st === 'Accepted' || i.st === 'Rejected').length;
+      const gs = all.filter(i => i.st === 'Accepted').reduce((a, i) => a + Number(i.sv || 0), 0);
+      return { idx: (ci + 1) + '.', name: c, meta: gd + '/' + all.length + ' decided' + (gs ? ' · ' + this.fmt(gs) : ''), items: gi.map(mkItem) };
+    }).filter(Boolean);
+
+    return {
+      accSumLabel: this.fmt(accSum),
+      decidedLabel: decided + '/' + IT.length,
+      openCount: IT.length - decided,
+      syncLabel,
+      syncDotStyle: 'width:6px;height:6px;background:' + dotCol + ';display:inline-block;flex-shrink:0;' + dotAnim,
+      syncPillStyle: 'display:flex;align-items:center;gap:6px;font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:2px 0;cursor:pointer;background:transparent;border:none;color:var(--sub);',
+      onPill: () => { if (this.url()) this.refresh(); else this.setState({ settingsOpen: true, urlDraft: this.url(), sheetDraft: this.sheetId() }); },
+      onRetry: () => this.refresh(),
+      demoMode: conn === 'demo',
+      errMode: conn === 'err',
+      errText: S.errText || 'Sync failed.',
+      chips, groups,
+      catNames: cats,
+      addOpen: S.addOpen, addCat: S.addCat, addTitle: S.addTitle, addNote: S.addNote,
+      addBtnLabel: S.addBusy ? 'Adding…' : 'Add to list',
+      openAdd: () => this.setState({ addOpen: true }),
+      onAddCat: e => this.setState({ addCat: e.target.value }),
+      onAddTitle: e => this.setState({ addTitle: e.target.value }),
+      onAddNote: e => this.setState({ addNote: e.target.value }),
+      onAddSave: () => {
+        const t = S.addTitle.trim(); if (!t || S.addBusy) return;
+        if (this.url()) {
+          this.setState({ addBusy: true });
+          this.post({ action: 'add', cat: S.addCat, title: t, note: S.addNote.trim() }, ok => {
+            this.setState({ addBusy: false, addOpen: !ok ? true : false, addTitle: ok ? '' : S.addTitle, addNote: ok ? '' : S.addNote });
+          });
+        } else {
+          const maxN = Math.max(...[...this.base, ...S.extraLocal].map(x => x.num));
+          const it = { num: maxN + 1, cat: S.addCat, title: t, note: S.addNote.trim(), src: 'CHxTLD', sv: 0, st: 'Proposed', party: '', unote: '' };
+          this.setState(s => ({ extraLocal: [...s.extraLocal, it], addOpen: false, addTitle: '', addNote: '' }), () => this.persistLocal());
+        }
+      },
+      shareOpen: S.shareOpen,
+      openShare: () => this.setState({ shareOpen: true }),
+      shareText: this.shareText(),
+      copyLabel: S.copyLabel,
+      onCopy: () => {
+        const t = this.shareText();
+        const done = () => { this.setState({ copyLabel: 'Copied ✓' }); setTimeout(() => this.setState({ copyLabel: 'Copy to clipboard' }), 1600); };
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(done).catch(done); else done();
+      },
+      settingsOpen: S.settingsOpen,
+      openSettings: () => this.setState({ settingsOpen: true, urlDraft: this.url(), sheetDraft: this.sheetId() }),
+      urlDraft: S.urlDraft, sheetDraft: S.sheetDraft,
+      onUrlDraft: e => this.setState({ urlDraft: e.target.value }),
+      onSheetDraft: e => this.setState({ sheetDraft: e.target.value }),
+      connStatusLine: conn === 'ok' ? 'Connected — last sync ' + (mins < 1 ? 'just now' : mins + ' min ago') + '.' : conn === 'demo' ? 'Not connected — running in local demo mode.' : conn === 'err' ? (S.errText || 'Connection error.') : 'Connecting…',
+      onConnect: () => {
+        try {
+          localStorage.setItem('kellyVE.scriptUrl', S.urlDraft.trim());
+          localStorage.setItem('kellyVE.sheetId', S.sheetDraft.trim());
+        } catch (e) {}
+        this.setState({ settingsOpen: false, remote: null, conn: 'loading' }, () => this.refresh());
+      },
+      onDisconnect: () => {
+        try { localStorage.setItem('kellyVE.scriptUrl', ''); localStorage.setItem('kellyVE.sheetId', ''); } catch (e) {}
+        this.setState({ settingsOpen: false, remote: null, pend: {}, conn: 'demo', urlDraft: '', sheetDraft: '' });
+      },
+      closeAll: () => this.setState({ addOpen: false, shareOpen: false, settingsOpen: false }),
+      eatClick: e => e.stopPropagation()
+    };
+  }
+}
+</script>
+</body>
+</html>
