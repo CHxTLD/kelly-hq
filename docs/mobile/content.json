@@ -24,8 +24,10 @@
     "Floating stair is back, with a glass corner at the landing. Fun one to walk through!"
    ],
    "images": [
-    "hero-stair.jpg",
-    "stair-ref.jpg"
+    "s4-steel-beams.jpg",
+    "s2-steel-beams.jpg",
+    "kelly-great-room.jpg",
+    "kelly-floating-stair.jpg"
    ],
    "clip": "narration-1b.mp3",
    "script": "Hey everyone, I'm trying something new this week, so here's a quick walk through before Friday. First, structure. I've been working with Greg and Matt at ISE on some refinements, and the goal is to take essentially all of the steel out of the house. The living room roof goes first. Deeper wood joists do the work, which means less shear, a cleaner load path, and real savings. Christian and Keith are also taking a first look at building the living room on site, priced right alongside modular. And the fun one: the floating stair is back, now with a glass corner at the landing."
@@ -39,8 +41,9 @@
     "Patio door: sticking with Fleetwood, the Marvin and Milgard options fell short."
    ],
    "images": [
-    "render-autumn.jpg",
-    "render-arrival.jpg"
+    "kelly-railing.jpg",
+    "kelly-cladding.jpg",
+    "kelly-patio-door.jpg"
    ],
    "clip": "narration-2.mp3",
    "script": "Roland and Sally, a few calls for you two. The loft railing, cable or bars, and we'll match it to the stair. Nichiha and AL-13, and where each one goes. Christian has samples. And the patio door. We looked hard at Marvin and Milgard, but they fell short, so we're sticking with Fleetwood."
@@ -54,10 +57,9 @@
     "Bath mirrors from the Matrix Deco line, marble slab next steps. (Maria, Christian)"
    ],
    "images": [
+    "kelly-windows.jpg",
     "mood-vanity.jpg",
-    "mood-kitchen.jpg",
-    "mood-dining.jpg",
-    "mood-fireplace.jpg"
+    "kelly-slab.jpg"
    ],
    "clip": "narration-3.mp3",
    "script": "On pricing, the refined window schedule, Marvin Essential at seven foot heights, is headed to Method. The radiant heating and cooling bid is waiting on MEG's revisions. And Maria is pulling bath mirrors from the Matrix Deco line, with next steps on the marble slab alongside Christian."
@@ -72,8 +74,9 @@
     "Fire plan review moves to Truckee Fire, submitting once design changes settle."
    ],
    "images": [
-    "render-autumn.jpg",
-    "hero-motion-poster.jpg"
+    "kelly-grading.jpg",
+    "kelly-lot.jpg",
+    "kelly-lot-snow.jpg"
    ],
    "clip": "narration-4.mp3",
    "script": "Permits and site. Christian pulled the grading permit on the twenty third, and earthwork starts once the appraisal lands. Soil work wraps by October fifteenth, and foundations pour in the spring. Round one responses to Placer and the state go in mid October, with civil touch ups due October seventh. And fire plan review now runs through Truckee Fire. We'll submit once the design changes settle."
@@ -174,6 +177,104 @@
     "fireplace",
     "great room",
     "finishes"
+   ]
+  },
+  "kelly-great-room.jpg": {
+   "aspect": 1.1116,
+   "tags": [
+    "living room",
+    "great room",
+    "structure",
+    "site built",
+    "interior"
+   ]
+  },
+  "kelly-floating-stair.jpg": {
+   "aspect": 1.0436,
+   "tags": [
+    "stair",
+    "floating stair",
+    "glass",
+    "landing",
+    "interior"
+   ]
+  },
+  "kelly-railing.jpg": {
+   "aspect": 1.006,
+   "tags": [
+    "railing",
+    "loft",
+    "stair",
+    "bars",
+    "cable"
+   ]
+  },
+  "kelly-cladding.jpg": {
+   "aspect": 1.0745,
+   "tags": [
+    "exterior",
+    "cladding",
+    "nichiha",
+    "al-13",
+    "materials"
+   ]
+  },
+  "kelly-patio-door.jpg": {
+   "aspect": 1.2872,
+   "tags": [
+    "exterior",
+    "patio",
+    "door",
+    "fleetwood",
+    "rear"
+   ]
+  },
+  "kelly-windows.jpg": {
+   "aspect": 0.7494,
+   "tags": [
+    "windows",
+    "marvin",
+    "elevation",
+    "pricing"
+   ]
+  },
+  "kelly-slab.jpg": {
+   "aspect": 1.0,
+   "tags": [
+    "marble",
+    "slab",
+    "bath",
+    "interiors",
+    "finishes"
+   ]
+  },
+  "kelly-grading.jpg": {
+   "aspect": 1.2085,
+   "tags": [
+    "grading",
+    "permit",
+    "civil",
+    "site",
+    "drawing"
+   ]
+  },
+  "kelly-lot.jpg": {
+   "aspect": 1.0499,
+   "tags": [
+    "site",
+    "lot",
+    "earthwork",
+    "soil"
+   ]
+  },
+  "kelly-lot-snow.jpg": {
+   "aspect": 1.0499,
+   "tags": [
+    "site",
+    "lot",
+    "winter",
+    "foundations",
+    "snow"
    ]
   }
  }
